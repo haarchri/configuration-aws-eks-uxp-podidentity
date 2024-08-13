@@ -1,0 +1,19 @@
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-family-aws
+spec:
+  package: index.docker.io/haarchri/provider-family-aws:v0.18.0-1847.g5ae95a12e
+  skipDependencyResolution: true
+  runtimeConfigRef:
+    name: upbound-provider-aws
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-aws-ec2
+spec:
+  package: index.docker.io/haarchri/provider-aws-ec2:v0.18.0-1847.g5ae95a12e
+  skipDependencyResolution: true
+  runtimeConfigRef:
+    name: upbound-provider-aws

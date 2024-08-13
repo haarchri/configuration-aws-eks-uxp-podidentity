@@ -1,0 +1,20 @@
+apiVersion: aws.platform.upbound.io/v1alpha1
+kind: XEKS
+metadata:
+  name: configuration-aws-eks
+  annotations:
+    render.crossplane.io/composition-path: apis/pat/composition.yaml
+    render.crossplane.io/function-path: examples/functions.yaml
+spec:
+  parameters:
+    id: configuration-aws-eks
+    region: us-west-2
+    version: "1.27"
+    iam:
+      principalArn: arn:aws:iam::609897127049:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_AdministratorAccess_d703c73ed340fde7
+    nodes:
+      count: 3
+      instanceType: t3.small
+  writeConnectionSecretToRef:
+    name: configuration-aws-eks-kubeconfig
+    namespace: upbound-system

@@ -1,0 +1,8 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: VPC
+metadata:
+  name: vpc
+spec:
+  forProvider:
+    cidrBlock: 10.1.0.0/16
+    region: eu-west-1
